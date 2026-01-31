@@ -11,7 +11,7 @@
 		$wrapper = $('#wrapper'),
 		$header = $('#header'),
 		$nav = $('#nav'),
-		$main = $('#main'),
+		$main = $('.main'),
 		$navPanelToggle, $navPanel, $navPanelInner;
 
 	// Breakpoints.
@@ -124,13 +124,17 @@
 		$wrapper._parallax(0.925);
 
 	// Nav Panel.
+			const links = document.querySelectorAll('#nav ul.links li');
+
+			links.forEach(link => {
+			link.addEventListener('click', () => {
+				links.forEach(l => l.classList.remove('active'));
+				link.classList.add('active');
+			});
+			});
 
 		// Toggle.
-			$navPanelToggle = $(
-				'<a href="#navPanel" id="navPanelToggle">Menu</a>'
-			)
-				.appendTo($wrapper);
-
+		
 			// Change toggle styling once we've scrolled past the header.
 				$header.scrollex({
 					bottom: '5vh',
@@ -254,5 +258,28 @@
 			});
 
 		}
+
+
+		//change div based on profile/projects buttons
+		const projectsDiv = document.getElementById("projects");
+		const profileDiv = document.getElementById("profile");
+	  
+		const btnProjects = document.getElementById("btn-projects");
+		const btnProfile = document.getElementById("btn-profile");
+	  
+		// Show projects by default
+		projectsDiv.classList.add("active");
+	  
+		btnProjects.addEventListener("click", (e) => {
+		  e.preventDefault();
+		  projectsDiv.classList.add("active");
+		  profileDiv.classList.remove("active");
+		});
+	  
+		btnProfile.addEventListener("click", (e) => {
+		  e.preventDefault();
+		  profileDiv.classList.add("active");
+		  projectsDiv.classList.remove("active");
+		});
 
 })(jQuery);
