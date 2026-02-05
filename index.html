@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 	<head>
 		<title>Tobi's Portfolio</title>
@@ -19,198 +15,113 @@
 
 				<!-- Intro -->
 					<div id="intro">
-						
-						<h1>Tobi's Portfolio<br />
-							
-						</h1>
-						
-						<p>A robotics enthusiast <br />
-						</p>
-						<ul class="actions">
-							<li><a href="#header" class=""></a></li>
-						</ul>
+						<h1>This is<br />
+						Tobi</h1>
+						<p>Robotics Engineer.</p>
+						<!-- <ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul> -->
 					</div>
 
-				
+				<!-- Header -->
+					<header id="header">
+						<a href="images\Bakare Oluwatobiloba Olukayode resume(robotics).pdf" class="logo"> My Resume</a>
+					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li ><a id="btn-profile" href="#nav">Profile</a></li>
-							<li class="active"><a id="btn-projects" href="#nav">Projects</a></li>
+							<li class="active"><a href="index.html">my projects</a></li>
+							<li><a href="about.html">About Me</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/tobiloba-bakare/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/BakareTobias/" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>>
+							<li><a href="https://www.linkedin.com/in/tobiloba-bakare/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/BakareTobias/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
-					<div class="main" id="projects">
+					<div id="main">
 
 						<!-- Featured Post -->
-							<article class="post featured">
+							<!-- <article class="post featured">
 								<header class="major">
-									
-									<h2>6-DOF Robotic Arm Simulation using ROS 2 and MoveIt</h2>
-									<p>
-									Designed and implemented a 6-degree-of-freedom robotic manipulator in URDF, 
-									integrated with ROS 2 and MoveIt for motion planning and control. 
-									Developed custom ROS 2 nodes for forward and inverse kinematics, 
-									enabling end-effector pose control and trajectory execution in simulation.
-									</p>
+									<span class="date">April 25, 2017</span>
+									<h2><a href="#">And this is a<br />
+									massive headline</a></h2>
+									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+									amet nullam sed etiam veroeros.</p>
 								</header>
-								<a href="https://drive.google.com/file/d/1ekwW4uKgPeih__PlYYV_i0TOo5S9DcJ7/view" class="image main"><img src="images/final_proj.gif" alt="" /></a>
+								<a href="#" class="image main">
+									<video width="640" height="360" controls>
+										<source src="images\pick_and_place_demo_1.mp4" type="video/mp4">
+										Your browser does not support the video tag.
+									</video>
+								</a>
 								<ul class="actions special">
-									<li><a href="https://github.com/BakareTobias/six_dof_arm_ros2" class="button large">View Code</a></li>
+									<li><a href="#" class="button large">Full Story</a></li>
 								</ul>
-							</article>
+							</article> -->
 
 						<!-- Posts -->
-							<!-- <section class="posts">
+							<section class="post featured">
+								
 								<article>
 									<header>
-										<h2>Andino Fleet + Open-RMF</h2>
+										<h2>Pick and  Place(PAP) Arm</h2>
 									</header>
-									<a class="image fit"><img src="images/andino_rmf.gif" alt="" /></a>
-									<p>Move a fleet of Andino robots around a simulated envirnoment using OpenRMF framework. This is an internship project with Ekumen</p>
+									<video class="image fit" controls>
+										<source src="images\pick_and_place_demo_1.mp4" type="video/mp4">
+										
+									</video>
+									<p>A ROS2 project that models and controls a 7 degree of freedom robotic arm using gazebo and moveit. The project includes support for pick-and-place functionality..</p>
+									<ul class="actions small">
+										<p>Technologies Used:</p>
+										<li><a  class="button primary small">ROS2</a></li>
+										<li><a  class="button primary small">GAZEBO</a></li>
+										<li><a  class="button primary small">MOVEIT</a></li>
+									</ul>
 									<ul class="actions special">
-										<li><a href="https://github.com/Ekumen-OS/andino_rmf?tab=readme-ov-file" class="button">View Code</a></li>
+										<li><a href="https://github.com/BakareTobias/pap_arm_ros2/blob/main/README.md" class="button">Read More</a></li>
 									</ul>
 								</article>
-								<article>
-									<header>
-										<h2>Autonomous Navigation<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/auto_navigation.gif" alt="" /></a>
-									<p>Program RB1 to navigate around a warehouse setting, enabling a functionality to place a shelf in a designated area.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/checkpoint6-autonomous-navigation?tab=readme-ov-file" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Kinematics of Mobile Robots<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/maze_solver.gif" alt="" /></a>
-									<p>Control a mobile robot to traverse through a maze.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/maze_solver_robot" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Mobile Robot Path Planning<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/path_planner.gif" alt="" /></a>
-									<p>Implemented Dijkstra's Algorithm in C++ and added it to Nav2 planner plugin.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/robot_path_planning" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Web App for Robotics<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/webapp.gif" alt="" /></a>
-									<p>Created a web application for controlling the Tortoise robot.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/Web-app-for-robotics" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Docker for Robotics<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/docker.gif" alt="" /></a>
-									<p>Created Docker images to manage bringup of Tortoise robot for simulation and the real robot.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/Docker-for-robotics/tree/main" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Automated Testing<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/auto_test.gif" alt="" /></a>
-									<p>Created several test cases for automated testing in ROS & ROS2.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/automated_testing-for-robotics" class="button">View Code</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2>Continuous Integration<br />
-										</h2>
-									</header>
-									<a class="image fit"><img src="images/CI.gif" alt="" /></a>
-									<p>Automated a CI process to be triggered whenever a commit is pushed to a remote repository using Jenkins.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/ptientho/ci_ros2" class="button">View Code</a></li>
-									</ul>
-								</article>
-							</section> -->
 
-						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<!-- <a href="#" class="previous">Prev</a>
-									<a href="#" class="page active">1</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="next">Next</a> -->
-								</div>
-							</footer>
 
+								<!-- <article>
+									<header>
+										<h2>Under  <br/>Construction</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article> -->
+								
+							</section>
+
+					
 					</div>
 
-					<div class="main" id="profile">
-						<article class="post featured">
-							<header class="major"  style="text-align: left;">
-								
-								
-								<h2>Bio</h2>
-								<h3>About</h3>
-								<p style="text-align: left;">
-								Mechatronics engineering graduate with strong interest in robotics, mechanical manipulators and intelligent 
-								systems. Experienced with Python, ROS2, MoveIt, Gazebo, C++ with projects from simulation to building. Currently 
-								seeking MSc opportunities in robotics and internships to bolster my experience. 
-								</p>
-
-								<h3>Education</h3>
-								<p style="text-align: left;">
-								B.Eng. Mechatronics Engineering <br>
-								Bells University of Technology, Nigeria <br>
-								2021– 2025 <br>
-								Relevant coursework: Control Systems, Robotics, Machine Learning, Sensors & Actuators
-								
-								</p>
-							</header>
-							
-						</article>
-					</div>
 				<!-- Footer -->
 					<footer id="footer">
+						
 						<section class="split contact">
 							
 							<section>
 								<h3>Phone</h3>
-								<p>+(234)-812-014-0153</a></p>
+								<p><a href="">(+234) 812-014-0153</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p>bakareoluwatobiloba13@gmail.com</a></p>
+								<p><a href="">bakareoluwatobioba13@gmail.com</a></p>
 							</section>
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/tobiloba-bakare/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/BakareTobias" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/tobiloba-bakare/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="https://github.com/BakareTobias/" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
 						</section>
@@ -218,7 +129,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Tobiloba Bakare</li></ul>
 					</div>
 
 			</div>
