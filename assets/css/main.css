@@ -145,6 +145,7 @@ input, select, textarea {
 
 	body {
 		color: #212931;
+		
 	}
 
 	body, input, select, textarea {
@@ -160,7 +161,7 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		text-decoration: none;
+		text-decoration: none !important;
 	}
 
 		a:hover {
