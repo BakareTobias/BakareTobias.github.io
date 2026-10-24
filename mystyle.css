@@ -1,0 +1,27 @@
+@font-face {
+  font-family: myFont; /* set name */
+  src: url(sansation_light.woff); /* url of the font */
+}
+
+
+
+body{
+    background-color: #adb19c;
+    
+
+}
+
+
+.eb-garamond {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.im-fell-english-regular {
+  font-family: "IM Fell English", serif;
+  font-weight: 400;
+  font-style: normal;
+}
