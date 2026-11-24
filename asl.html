@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- 1. Change the title, description and og tags for each project -->
-<title>Project Name · Tobi</title>
-<meta name="description" content="One sentence on what this project is and does.">
-<meta property="og:title" content="Project Name · Tobi">
-<meta property="og:description" content="One sentence on what this project is and does.">
+<title>Sign Language Interface · Tobi</title>
+<meta name="description" content="A real-time Sign Language Interface system for alphabet-level American Sign Language translation and touchless computer navigation.">
+<meta property="og:title" content="Sign Language Interface · Tobi">
+<meta property="og:description" content="A real-time Sign Language Interface system for alphabet-level ASL translation and touchless computer navigation.">
 <meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -78,10 +77,17 @@
   .shot {
     position: relative; margin: 0; width: 100%;
     aspect-ratio: 16 / 9; display: grid; place-items: center;
-    overflow: hidden; border-radius: 6px; background: var(--p1);
+    overflow: hidden; border-radius: 6px;   background: transparent;
+
     font-size: clamp(4rem, 12vw, 9rem);
   }
-  .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shot img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
   figcaption { margin-top: .6rem; font-size: .9rem; color: var(--muted); }
 
   /* Quick facts */
@@ -148,95 +154,129 @@
 
   <!-- 2. Title block: tags, emoji + name, and a one or two sentence summary -->
   <section class="hero">
-    <p class="tags">Category one, Category two, Category three</p>
-    <h1>🤖 Project Name</h1>
-    <p class="summary">A short, plain summary of what you built and why it matters, in one or two sentences.</p>
+    <p class="tags">Computer Vision · Machine Learning · Human–Computer Interaction</p>
+    <h1> Sign Language Interface</h1>
+    <p class="summary">A real-time hand-tracking and gesture-recognition system that translates alphabet-level American Sign Language (ASL) gestures and enables touchless computer navigation through webcam input.</p>
     <div class="actions">
-      <a class="link" href="https://github.com/BakareTobias" target="_blank" rel="noopener">View on GitHub </a>
-      <!-- Optional: live demo or video link. Delete if not needed. -->
-      <a class="link" href="#" target="_blank" rel="noopener">Live demo </a>
+      <a class="link" href="https://github.com/BakareTobias/computer_vision" target="_blank" rel="noopener">View on GitHub</a>
     </div>
   </section>
 
   <!-- 3. Main image or GIF. Put the file in assets/ and match the filename -->
-  <figure class="shot">🤖<img src="assets/project-hero.png" alt="Describe what the image shows" onerror="this.remove()"></figure>
+  <figure class="shot">
+    <img src="assets/images/asl_demo.png" alt="Reference chart of hand landmarks and ASL gestures" onerror="this.remove()">
+  </figure>
 
   <!-- 4. Quick facts: keep these short -->
   <section class="facts" aria-label="Project facts">
-    <div><h2>Role</h2><p>Solo project</p></div>
-    <div><h2>Timeline</h2><p>Month Year – Month Year</p></div>
-    <div><h2>Tools</h2><p>Tool, tool, tool</p></div>
-    <div><h2>Context</h2><p>Personal / MSc / Industry</p></div>
+    <div><h2>Role</h2><p>Individual project</p></div>
+    <div><h2>Focus</h2><p>Hand tracking & gesture recognition</p></div>
+    <div><h2>Tools</h2><p>Python, OpenCV, MediaPipe, scikit-learn</p></div>
+    <div><h2>Applications</h2><p>ASL interface & touchless control</p></div>
   </section>
 
   <!-- 5. Story sections. Copy a whole <section class="section"> block to add more, delete the ones you don't need -->
   <section class="section">
     <h2>The problem</h2>
     <div class="text">
-      <p>What were you trying to do, and what made it hard? Write for someone who has never heard of the project, such as a recruiter or an engineer from another field.</p>
+      <p>Hand gestures provide a natural way to communicate and interact with digital systems, but interpreting them reliably from a webcam feed is challenging. Hand position, orientation and proportions vary between users, while visually similar poses can be difficult to distinguish.</p>
+      <p>This project addresses those challenges with a modular computer-vision pipeline. It supports an alphabet-level ASL interface and a separate set of touchless computer-navigation controls.</p>
     </div>
   </section>
 
   <section class="section">
     <h2>How it works</h2>
     <div class="text">
-      <p>Explain the system in plain steps. A numbered list works well for a pipeline.</p>
+      <p>The system uses webcam frames to detect hand landmarks, normalize their coordinates and pass the resulting features to gesture-recognition logic.</p>
       <ol>
-        <li>First stage and what it outputs.</li>
-        <li>Second stage and what it outputs.</li>
-        <li>Third stage and what it outputs.</li>
+        <li><strong>Hand detection:</strong> MediaPipe identifies hand landmarks in each webcam frame, supporting real-time, multi-hand tracking.</li>
+        <li><strong>Landmark preprocessing:</strong> Coordinates are translated relative to landmark 0 and scaled using palm width and palm height to reduce sensitivity to hand size and position.</li>
+        <li><strong>Gesture classification:</strong> A Random Forest classifier recognizes static ASL letters. An LSTM model handles the dynamic gestures for J and Z by using sequences of hand landmarks.</li>
+        <li><strong>Application output:</strong> The ASL interface converts recognized gestures into text. The touchless-navigation scripts map hand gestures to cursor movement, clicks, scrolling and volume control.</li>
       </ol>
+      <pre><code>Webcam
+  ↓
+MediaPipe hand landmarks
+  ↓
+Landmark normalization
+  ↓
+┌────────────────┬────────────────┐
+│ Random Forest  │      LSTM      │
+│  Static signs  │ Dynamic signs  │
+└────────────────┴────────────────┘
+         ↓
+ ASL text / computer controls</code></pre>
     </div>
   </section>
 
   <!-- Two images side by side. Use class="gallery" for a single full-width one -->
   <div class="gallery two">
     <figure>
-      <div class="shot">📐<img src="assets/project-diagram.png" alt="Describe the diagram" onerror="this.remove()"></div>
-      <figcaption>Caption explaining what the reader is looking at.</figcaption>
+      <div class="shot">📈<img src="https://github.com/user-attachments/assets/e32f473f-6177-4ae2-bc90-cdc1053738a6" alt="Model evaluation results comparing gesture classifiers" onerror="this.remove()"></div>
+      <figcaption>Model evaluation: comparison of classification performance as the number of gesture classes increases.</figcaption>
     </figure>
     <figure>
-      <div class="shot">📊<img src="assets/project-results.png" alt="Describe the chart" onerror="this.remove()"></div>
-      <figcaption>Caption explaining what the reader is looking at.</figcaption>
+      <div class="shot">🖐️<img src="https://github.com/user-attachments/assets/d5bd8364-8a81-42eb-97e0-9a5e665775d0" alt="MediaPipe hand landmark reference" onerror="this.remove()"></div>
+      <figcaption>Hand landmark reference used to describe hand pose through keypoint coordinates.</figcaption>
     </figure>
   </div>
 
   <section class="section">
     <h2>Key decisions</h2>
     <div class="text">
-      <p>Pick two or three choices you made and say why: a model, a library, a trade-off, something you tried that didn't work.</p>
-      <!-- Optional code snippet. Delete if not needed. -->
-      <pre><code># a short snippet that shows the core idea
-def example():
-    return "keep it under about 15 lines"</code></pre>
+      <p><strong>Landmark-based features:</strong> Rather than classifying raw image pixels, the system uses hand keypoints. Coordinates are normalized relative to the wrist landmark and scaled by palm dimensions, helping the model focus on hand pose rather than absolute image position or hand size.</p>
+      <p><strong>Different models for static and dynamic gestures:</strong> Logistic Regression and Random Forest were evaluated for static gestures. Random Forest achieved stronger precision, accuracy and F1 performance as the number of classes increased, so it was selected for static ASL letters. J and Z require motion over time, so an LSTM was used to model sequences of landmarks.</p>
+      <p><strong>Reducing forced-choice errors:</strong> The dynamic-gesture dataset includes an “other” class containing hand movements that are neither J nor Z. This gives the model an alternative to assigning every unfamiliar motion to one of the target letters.</p>
+      <pre>
+        <code># Landmark normalization concept
+          origin = landmarks[0]
+          relative_landmarks = landmarks - origin
+
+          palm_width = distance(landmarks[5], landmarks[17])
+          palm_height = distance(landmarks[0], landmarks[5])
+
+          normalized_landmarks = scale_by_palm_dimensions(
+              relative_landmarks, palm_width, palm_height
+          )
+        </code>
+      </pre>
+      <p><em>The snippet illustrates the preprocessing approach described in the project; it is conceptual rather than a verbatim function from the repository.</em></p>
     </div>
   </section>
 
   <section class="section">
     <h2>Results</h2>
     <div class="text">
-      <p>What happened, with numbers where you have them: accuracy, speed, success rate, time saved.</p>
+      <p>The current system recognizes all 26 ASL alphabet letters and additional static hand gestures. It also supports dynamic recognition of J and Z using an LSTM, alongside custom space and backspace gestures for text entry.</p>
       <ul>
-        <li>Result one with a number.</li>
-        <li>Result two with a number.</li>
+        <li>5,000+ labelled instances collected across 28 classes for the static-gesture dataset.</li>
+        <li>42 features per single-hand sample, representing the x and y coordinates of 21 landmarks.</li>
+        <li>Support for two-hand landmark data, represented by 86 features: 84 coordinate values and two inter-hand distance features.</li>
+        <li>Real-time webcam inference, with testing on live camera feeds, static images and recorded videos.</li>
+        <li>Touchless controls for cursor movement, left click, right click, click-and-drag, scrolling and volume adjustment.</li>
+        <li>Unit tests written for core modules.</li>
       </ul>
+      <p>Testing showed that similar-looking letters can still be misclassified. This is an important limitation when interpreting predictions in real-world conditions.</p>
     </div>
   </section>
 
   <section class="section">
     <h2>What I learned</h2>
     <div class="text">
-      <p>What you'd do differently, and what you'd build next.</p>
+      <p>This project developed my understanding of the complete machine-learning workflow for vision-based interaction: collecting and labelling data, preprocessing landmarks, comparing classifiers, evaluating errors and integrating inference into real-time applications.</p>
+      <p>It also highlighted the distinction between static pose recognition and dynamic gesture recognition. A single frame can describe a hand configuration, but gestures such as J and Z require temporal information across multiple frames.</p>
+      <p>Further work could focus on reducing confusion between visually similar letters, expanding evaluation across different users and lighting conditions, and improving temporal recognition robustness.</p>
     </div>
   </section>
 
-  <!-- 6. Link to the next project -->
-  <nav class="next" aria-label="Next project">
+  <nav class="next" aria-label="More projects">
     <div>
-      <small>Next project</small>
-      <a href="next-project.html">🦾 Next Project Name →</a>
+      <small>More work</small>
+      <a href="index.html#projects">All projects →</a>
     </div>
   </nav>
+
+ 
 
 </main>
 

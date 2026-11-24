@@ -143,6 +143,13 @@
   .c1 { background: var(--p1); } .c2 { background: var(--p2); }
   .c3 { background: var(--p3); } .c4 { background: var(--p4); }
 
+  .shot video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity .25s ease; pointer-events: none;
+  }
+
+  .shot.playing video { opacity: 1; }
+
   /* About */
   .about {
     padding: 4rem 0; border-top: 1px solid var(--line);
@@ -205,7 +212,7 @@
 <main id="top">
 
   <!-- Intro: edit this sentence, it is the whole personality of the page -->
-  <!-- <span class="sticker" data-gif="assets/gifs/robot.gif" data-fallback="🤖"></span>-->
+  <!-- <span class="sticker" data-gif="assets/gifs/robot.gif" data-fallback=""></span>-->
   <section class="intro">
     <h1>
       Tobi likes writing software to solve problems. He is currently doing a masters in Robotics to also solve problems with hardware,
@@ -224,17 +231,24 @@
           <p class="desc">A perception-to-motion pipeline for a 7-DOF manipulator. A camera finds the object, ROS2 passes the pose along, and MoveIt2 plans the grasp and placement, tested in Gazebo simulation.</p>
           <a class="link" href="https://github.com/BakareTobias/pap_arm_ros2" target="_blank" rel="noopener">View on GitHub </a>
         </div>
-        <figure class="shot c2"><img src="assets/images/arm.png" alt="Simulated manipulator picking and placing an object" onerror="this.remove()"></figure>
+        <figure class="shot c2">
+          <img src="assets/images/arm.png" alt="Simulated manipulator picking and placing an object" onerror="this.remove()">
+          <video src="https://github.com/user-attachments/assets/0011d544-3251-402c-8478-71e561630faf" muted loop playsinline preload="metadata" onerror="this.remove()"></video>
+        </figure>
     </article>
 
     <article class="project">
       <div class="project-head">
         <p class="tags">Computer vision, Machine learning, Web app</p>
-        <h2>American Sign Language Interface</h2>
+        <h2><a href="asl.html"> Sign Language Interface</a></h2>
         <p class="desc">A real-time American Sign Language recognizer built on MediaPipe hand landmarks. Random Forest and Logistic Regression classifiers cover 26+ gesture classes, and an LSTM handles the letters that need motion, like J and Z. It runs live in the browser through a Streamlit and WebRTC front end.</p>
         <a class="link" href="https://github.com/BakareTobias/computer_vision" target="_blank" rel="noopener">View on GitHub </a>
       </div>
-      <figure class="shot c1"><img src="assets/images/asl_demo.png" alt="Demo of the ASL gesture recognition app" style="object-position: 0% 100%" onerror="this.remove()"></figure>
+      <figure class="shot c1">
+        <img src="assets/images/asl_demo.png" alt="Demo of the ASL gesture recognition app" style="object-position: 0% 100%" onerror="this.remove()">
+        <video src="assets/videos/asl_demo_cropped_sped_up.mp4" muted loop playsinline preload="metadata" onerror="this.remove()"></video>
+
+      </figure>
     </article>
 
     <article class="project">
@@ -245,6 +259,7 @@
         <a class="link" href="https://github.com/BakareTobias/4DOFarm" target="_blank" rel="noopener">View on GitHub </a>
       </div>
       <figure class="shot c3"><img src="assets/images/4_dof_arm.png" alt="Screenshot of the 4 DOF manipulator in operation" style="object-position: 50% 100%" onerror="this.remove()"></figure>
+   
     </article>
 
     <article class="project">
@@ -264,7 +279,7 @@
         <p class="desc">This project is still in progress.</p>
         <a class="link" href="" target="_blank" rel="noopener">View on GitHub </a>
       </div>
-      <figure class="shot c4"><img src="assets/gifs/construction.gif" alt="Rendered procedural terrain heightmap" style="object-position: 50% 90%" onerror="this.remove()"></figure>
+      <figure class="shot c4"><img src="assets/gifs/construction.gif" alt="Construction animation: this project is in progress". style="object-position: 50% 90%" onerror="this.remove()"></figure>
     </article>
 
   </div>
@@ -325,6 +340,32 @@
     img.src = el.dataset.gif;
     el.appendChild(img);
   });
+  // Play a project's video on hover (or when scrolled into view on touch screens)
+  if (!reduceMotion) {
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    const io = canHover ? null : new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const v = e.target.querySelector("video");
+        if (!v) return;
+        if (e.isIntersecting) v.play().catch(() => {}); else stop(e.target, v);
+      });
+    }, { threshold: 0.6 });
+
+    function stop(shot, v) { v.pause(); v.currentTime = 0; shot.classList.remove("playing"); }
+
+    document.querySelectorAll(".project .shot").forEach((shot) => {
+      const v = shot.querySelector("video");
+      if (!v) return;
+      v.addEventListener("playing", () => shot.classList.add("playing"));
+      if (canHover) {
+        shot.addEventListener("mouseenter", () => v.play().catch(() => {}));
+        shot.addEventListener("mouseleave", () => stop(shot, v));
+      } else {
+        io.observe(shot);
+      }
+    });
+}
 </script>
+
 </body>
 </html>
